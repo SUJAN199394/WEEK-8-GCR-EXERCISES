@@ -1,45 +1,54 @@
-// Add members of two different classes using friend functions
-
+/* Write a c++ program to Add members of two different classes using friend functions */
 #include <iostream>
 using namespace std;
 
-// forward declaration
-class ClassB;
+class Vatsa;
+class Ankit
+{
+    int num1;
 
-class ClassA {
-    
-    public:
-        // constructor to initialize numA to 12
-        ClassA() : numA(12) {}
-        
-    private:
-        int numA;
-        
-         // friend function declaration
-         friend int add(ClassA, ClassB);
+public:
+    Sujan()
+    {
+        cout << "Enter number 1 : " << endl;
+        cin >> num1;
+    }
+    friend void sumof(sujan a, Reddy b);
 };
 
-class ClassB {
+class Reddy
+{
+    int num2;
 
-    public:
-        // constructor to initialize numB to 1
-        ClassB() : numB(1) {}
-    
-    private:
-        int numB;
- 
-        // friend function declaration
-        friend int add(ClassA, ClassB);
+public:
+    Reddy()
+    {
+        cout << "Enter number 2 : " << endl;
+        cin >> num2;
+    }
+    friend void sumof(Sujan a, Reddy b);
 };
 
-// access members of both classes
-int add(ClassA objectA, ClassB objectB) {
-    return (objectA.numA + objectB.numB);
+void sumof(Sujan a, Reddy b)
+{
+    cout << "Sum of number 1 and number 2 is = " << a.num1 + b.num2 << endl;
 }
 
-int main() {
-    ClassA objectA;
-    ClassB objectB;
-    cout << "Sum: " << add(objectA, objectB);
+int main()
+{
+    Sujan obj1;
+    Reddy obj2;
+
+    sumof(obj1, obj2);
+
     return 0;
 }
+
+/*
+ Output:
+    Enter number 1 : 
+    5
+    Enter number 2 : 
+    7
+    Sum of number 1 and number 2 is = 12
+*/
